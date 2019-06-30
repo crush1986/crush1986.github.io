@@ -158,7 +158,7 @@
 
         
         <a href="/2017/10/28/SARADC/" class="archive-article-date">
-  	<time datetime="2017-10-28T13:01:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
+  	<time datetime="2017-10-28T14:01:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
 </a>
         
       </header>
@@ -170,11 +170,11 @@
 <h2 id="1-测试相关"><a href="#1-测试相关" class="headerlink" title="1. 测试相关"></a>1. 测试相关</h2><p>本来最简单粗暴的测试方法是信号源输入正弦信号，数字输出通过GPIO口输出，用逻辑分析仪抓取分析。不过由于电路架构是同步设计，采样和转换都是用的同一个系统时钟，而表示一个数据转换完成的ready信号无法拉到GPIO上，没办法给到逻辑分析仪作时钟，只能通过其他方式。最后采取把转换完成的数据写入片内SRAM中，确保写入一定量的数据后通过串口把SRAM中的数据发送出来。之后在matlab中对数据进行处理来计算静态参数和动态参数。  </p>
 <p><img src="/img/saradc_dynamic.png" alt=""> </p>
 <p>测试下来，主要有两个问题。一是从频谱上看，底噪确实都被压下去了，2次谐波由于差分设计的关系也不高；3次5次等谐波尖峰较高，造成ENOB较差。除此之外，还有很多密密麻麻的高次谐波出现在频谱上，暂时不清楚来源。信号源写着最小幅值2mv，不知道是不是由于信号源精度不够。。。第二个是，高低温下ENOB降低明显，分析瓶颈是在Vref的开关。开关是用的单管，导通电阻增大后Vref在转换周期的建立变慢，造成低位出错。</p>
-<h2 id="2-文献学习"><a href="#2-文献学习" class="headerlink" title="2. 文献学习"></a>2. 文献学习</h2><p><a href="http://ieeexplore.ieee.org/document/7243367/" target="_blank" rel="external">A 10 bit 320 MS/s Low-Cost SAR ADC for IEEE 802.11ac Applications in 20 nm CMOS</a></p>
+<h2 id="2-文献学习"><a href="#2-文献学习" class="headerlink" title="2. 文献学习"></a>2. 文献学习</h2><p><a href="http://ieeexplore.ieee.org/document/7243367/" target="_blank" rel="noopener">A 10 bit 320 MS/s Low-Cost SAR ADC for IEEE 802.11ac Applications in 20 nm CMOS</a></p>
 <p><img src="/img/cap_recombination.png" alt=""><br>借鉴了这篇论文中的架构。通过把MSB中的部分电容分出来，加到其他位上，使得电容阵列的权重并不完全是二进制的。这样的好处是能降低转换时发生的错误：因为同样的结果，可以采用不同的编码表示出来，换句话说也就是到达最终编码的路径不止唯一一条。进而大大降低对于Vref的建立要求，相应的buffer的动态性能要求也就降低了。缺点是，需要增加1到2个的转换周期，并且转换得到的数字码还需要额外的电路——全加器，mux等，进行处理才能得到最后的结果。  </p>
-<p><a href="http://ieeexplore.ieee.org/document/6045010/" target="_blank" rel="external">A high energy-efficiency SAR ADC based on partial floating capacitor switching technique</a><br><img src="/img/vref.png" alt=""><br>开关架构借鉴了这篇论文，用到了Vcm，在第一个转换周期也可以直接开始比较，使得电容值可以降低一半，功耗也较低。缺点是多了一个电压，多了一个buffer，功耗大了。虽然也是从Vref分压来的，但是过了buffer之后也需要校准。      </p>
+<p><a href="http://ieeexplore.ieee.org/document/6045010/" target="_blank" rel="noopener">A high energy-efficiency SAR ADC based on partial floating capacitor switching technique</a><br><img src="/img/vref.png" alt=""><br>开关架构借鉴了这篇论文，用到了Vcm，在第一个转换周期也可以直接开始比较，使得电容值可以降低一半，功耗也较低。缺点是多了一个电压，多了一个buffer，功耗大了。虽然也是从Vref分压来的，但是过了buffer之后也需要校准。      </p>
 <p>另外bridge capacitor结构是一定会采用的，因为串联的这个电容能减少整个电容阵列的容值，降低对输入驱动的要求。并且为了简化采样时的电路设计，fine侧的所有电容（包括最低位的冗余电容）被等效到coarse侧，得到unit大小的电容作为LSB(LSB的周期只需要进行比较，而不需要控制开关切换)。所以采样时只需要coarse侧电容采样，fine侧电容到地就OK。  </p>
-<p><a href="http://ieeexplore.ieee.org/document/5482529/" target="_blank" rel="external">A 10-bit 100-MS/s Reference-Free SAR ADC in 90 nm CMOS</a><br><a href="http://ieeexplore.ieee.org/document/6045010/" target="_blank" rel="external">A high energy-efficiency SAR ADC based on partial floating capacitor switching technique</a><br><a href="http://ieeexplore.ieee.org/document/6487735/" target="_blank" rel="external">A 2.4-to-5.2fJ/conversion-step 10b 0.5-to-4MS/s SAR ADC with charge-average switching DAC in 90nm CMOS</a><br><a href="http://ieeexplore.ieee.org/document/4425772/" target="_blank" rel="external">A 8-bit 500-KS/s low power SAR ADC for bio-medical applications</a><br><a href="http://ieeexplore.ieee.org/document/5437496/" target="_blank" rel="external">A 10-bit 50-MS/s SAR ADC With a Monotonic Capacitor Switching Procedure</a><br><a href="http://ieeexplore.ieee.org/document/7000592/" target="_blank" rel="external">A 0.3 V 10-bit 1.17 f SAR ADC With Merge and Split Switching in 90 nm CMOS</a><br>以上几篇论文都是在电容阵列和开关上有些变化，目标都是为了降低CDAC的功耗，也确实有不错的效果。</p>
+<p><a href="http://ieeexplore.ieee.org/document/5482529/" target="_blank" rel="noopener">A 10-bit 100-MS/s Reference-Free SAR ADC in 90 nm CMOS</a><br><a href="http://ieeexplore.ieee.org/document/6045010/" target="_blank" rel="noopener">A high energy-efficiency SAR ADC based on partial floating capacitor switching technique</a><br><a href="http://ieeexplore.ieee.org/document/6487735/" target="_blank" rel="noopener">A 2.4-to-5.2fJ/conversion-step 10b 0.5-to-4MS/s SAR ADC with charge-average switching DAC in 90nm CMOS</a><br><a href="http://ieeexplore.ieee.org/document/4425772/" target="_blank" rel="noopener">A 8-bit 500-KS/s low power SAR ADC for bio-medical applications</a><br><a href="http://ieeexplore.ieee.org/document/5437496/" target="_blank" rel="noopener">A 10-bit 50-MS/s SAR ADC With a Monotonic Capacitor Switching Procedure</a><br><a href="http://ieeexplore.ieee.org/document/7000592/" target="_blank" rel="noopener">A 0.3 V 10-bit 1.17 f SAR ADC With Merge and Split Switching in 90 nm CMOS</a><br>以上几篇论文都是在电容阵列和开关上有些变化，目标都是为了降低CDAC的功耗，也确实有不错的效果。</p>
 <p>但是跟ADC本身功耗比起来，时钟网络（如果采用同步时钟设计），输入和Vref buffer的功耗才是大头，特别是对于高速ADC来说。所以一切不考虑buffer号称达到多少多少FOM值的行为都是耍流氓。大负载条件下，实现高速高带宽达到好的瞬态响应，跟电流消耗之间的折衷才是SARADC的难点所在啊。</p>
 <p>待更新……</p>
 
@@ -359,15 +359,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">投资</a>
               </li>
             
             <div class="clearfix"></div>

@@ -157,16 +157,16 @@
 
         
         <a href="/2017/07/02/TRNG设计与实现/" class="archive-article-date">
-  	<time datetime="2017-07-02T06:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
+  	<time datetime="2017-07-02T07:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>True Random Number Generator (TRNG，定义参考<a href="https://en.wikipedia.org/wiki/TRNG" target="_blank" rel="external">WIKI</a>），主要应用于安全领域。与PRNG采用特定的程序产生随机数不同，TRNG是将真实世界中的物理量——电路中的thermal noise，jitter，或者其他器件噪声，收集放大，进而产生随机数。通常的结构有利用metastability，也就是交叉耦合的反相器；有利用振荡器的jitter；慢clk采快clk的uncertainty等等。<br>最大的挑战来自于PVT的影响，所以需要进行很多tuning，确保位流的随机性，防止产生有偏见的结果。</p>
+        <p>True Random Number Generator (TRNG，定义参考<a href="https://en.wikipedia.org/wiki/TRNG" target="_blank" rel="noopener">WIKI</a>），主要应用于安全领域。与PRNG采用特定的程序产生随机数不同，TRNG是将真实世界中的物理量——电路中的thermal noise，jitter，或者其他器件噪声，收集放大，进而产生随机数。通常的结构有利用metastability，也就是交叉耦合的反相器；有利用振荡器的jitter；慢clk采快clk的uncertainty等等。<br>最大的挑战来自于PVT的影响，所以需要进行很多tuning，确保位流的随机性，防止产生有偏见的结果。</p>
 <a id="more"></a>
-<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><p>新项目，做个TRNG集成在MCU中。目标是能通过<a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf" target="_blank" rel="external">NIST SP800-22</a>测试。</p>
+<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><p>新项目，做个TRNG集成在MCU中。目标是能通过<a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf" target="_blank" rel="noopener">NIST SP800-22</a>测试。</p>
 <p>NIST SP800-22测试包括15项：</p>
 <ol>
 <li>The Frequency (Monobit) Test,</li>
@@ -186,13 +186,13 @@
 <li>The Random Excursions Variant Test. </li>
 </ol>
 <p>目前有买第三方的IP，但是从仅有两页的ds来看，肯定过不了这些测试。。</p>
-<h2 id="阅读文献"><a href="#阅读文献" class="headerlink" title="阅读文献"></a>阅读文献</h2><p><a href="http://ieeexplore.ieee.org/document/7919157/" target="_blank" rel="external">A 82-nW Chaotic Map True Random Number Generator Based on a Sub-Ranging SAR ADC</a>  </p>
-<p><a href="http://ieeexplore.ieee.org/document/7756633/" target="_blank" rel="external">3-Gb/s High-Speed True Random Number Generator Using Common-Mode Operating Comparator and Sampling Uncertainty of D Flip-Flop</a><br>利用工作在共模模式的比较器采集电路热噪声，再加上高速时钟采样时的uncertainty。</p>
-<p><a href="http://ieeexplore.ieee.org/document/4443211/" target="_blank" rel="external">True Random Number Generator With a Metastability-Based Quality Control</a>  </p>
-<p><a href="http://ieeexplore.ieee.org/document/6339068/" target="_blank" rel="external">2.4 Gbps, 7 mW All-Digital PVT-Variation Tolerant True Random Number Generator for 45 nm CMOS High-Performance Microprocessors</a>  </p>
-<p>重点研究了这一篇。<br><a href="http://ieeexplore.ieee.org/document/7422712/" target="_blank" rel="external">An All-Digital Edge Racing True Random Number Generator Robust Against PVT Variations</a><br>与以往利用RO jitter的电路相比，这篇的最创新的地方在于，RO是偶数级的。外部时钟的上升沿同时trigger电路中的两个节点。看到的结果就是在观测的输出节点，上升沿和下降沿是两条完全独立且对称的路径。所以完全理想的条件下，上升沿和下降沿保持固定的相位关系，在输出节点上看到均匀的时钟周期。但是因为device mismatch和随机噪声带来的jitter，两条路径并不会完全一致，造成上升沿路径比下降沿路径要快（或者相反），输出节点上经过若干周期后脉冲就会消失。而这个脉冲消失时的周期数，可以认为是一个随机数。通过减小device mismatch，让jitter在脉冲消失的过程中占据主导因素，可以获得很好的随机性。<br><img src="/img/RO.png" alt=""><br><img src="/img/RO_collapse.png" alt=""></p>
-<p>除了这篇JSSC，作者另外还有几篇相关的ISSCC，内容一脉相承。<br><a href="http://ieeexplore.ieee.org/document/6757434/" target="_blank" rel="external">16.3 A 23Mb/s 23pJ/b fully synthesized true-random-number generator in 28nm and 65nm CMOS</a><br>上升沿同时trigger三个节点，最后在输出节点通过PFD来检测。</p>
-<p><a href="http://ieeexplore.ieee.org/document/7063022/" target="_blank" rel="external">14.2 A physically unclonable function with BER &lt;10−8 for robust chip authentication using oscillator collapse in 40nm CMOS</a><br>RO中增加电流源来控制电流和噪声，并且增加一个温度补偿的偏置电流。  </p>
+<h2 id="阅读文献"><a href="#阅读文献" class="headerlink" title="阅读文献"></a>阅读文献</h2><p><a href="http://ieeexplore.ieee.org/document/7919157/" target="_blank" rel="noopener">A 82-nW Chaotic Map True Random Number Generator Based on a Sub-Ranging SAR ADC</a>  </p>
+<p><a href="http://ieeexplore.ieee.org/document/7756633/" target="_blank" rel="noopener">3-Gb/s High-Speed True Random Number Generator Using Common-Mode Operating Comparator and Sampling Uncertainty of D Flip-Flop</a><br>利用工作在共模模式的比较器采集电路热噪声，再加上高速时钟采样时的uncertainty。</p>
+<p><a href="http://ieeexplore.ieee.org/document/4443211/" target="_blank" rel="noopener">True Random Number Generator With a Metastability-Based Quality Control</a>  </p>
+<p><a href="http://ieeexplore.ieee.org/document/6339068/" target="_blank" rel="noopener">2.4 Gbps, 7 mW All-Digital PVT-Variation Tolerant True Random Number Generator for 45 nm CMOS High-Performance Microprocessors</a>  </p>
+<p>重点研究了这一篇。<br><a href="http://ieeexplore.ieee.org/document/7422712/" target="_blank" rel="noopener">An All-Digital Edge Racing True Random Number Generator Robust Against PVT Variations</a><br>与以往利用RO jitter的电路相比，这篇的最创新的地方在于，RO是偶数级的。外部时钟的上升沿同时trigger电路中的两个节点。看到的结果就是在观测的输出节点，上升沿和下降沿是两条完全独立且对称的路径。所以完全理想的条件下，上升沿和下降沿保持固定的相位关系，在输出节点上看到均匀的时钟周期。但是因为device mismatch和随机噪声带来的jitter，两条路径并不会完全一致，造成上升沿路径比下降沿路径要快（或者相反），输出节点上经过若干周期后脉冲就会消失。而这个脉冲消失时的周期数，可以认为是一个随机数。通过减小device mismatch，让jitter在脉冲消失的过程中占据主导因素，可以获得很好的随机性。<br><img src="/img/RO.png" alt=""><br><img src="/img/RO_collapse.png" alt=""></p>
+<p>除了这篇JSSC，作者另外还有几篇相关的ISSCC，内容一脉相承。<br><a href="http://ieeexplore.ieee.org/document/6757434/" target="_blank" rel="noopener">16.3 A 23Mb/s 23pJ/b fully synthesized true-random-number generator in 28nm and 65nm CMOS</a><br>上升沿同时trigger三个节点，最后在输出节点通过PFD来检测。</p>
+<p><a href="http://ieeexplore.ieee.org/document/7063022/" target="_blank" rel="noopener">14.2 A physically unclonable function with BER &lt;10−8 for robust chip authentication using oscillator collapse in 40nm CMOS</a><br>RO中增加电流源来控制电流和噪声，并且增加一个温度补偿的偏置电流。  </p>
 <h2 id="电路实现"><a href="#电路实现" class="headerlink" title="电路实现"></a>电路实现</h2><p>RO部分，各级inv及其option采用full custom方式。tuning部分通过数字flow来实现，低速的输入时钟。根据monitor的结果，LFSR产生对应bit数的配置位输出就OK。周期数的counter因为使用的RO自身的高速时钟，也采用full custom做在本地。</p>
 <p>trannoise仿真是一个漫长的过程。特别是需要比较大数据量才能评判数据的随机性。并且也会怀疑trannoise仿真中noise本身就是一个伪随机序列，是否对仿真结果有影响。   </p>
 <h2 id="更新中……"><a href="#更新中……" class="headerlink" title="更新中……"></a>更新中……</h2>
@@ -377,15 +377,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">投资</a>
               </li>
             
             <div class="clearfix"></div>

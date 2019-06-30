@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="一个IC民工的自我修养">
 <meta property="og:description" content="已经无法用倒车来形容，简直是掉头踩油门。greenjsq从2017/7/1开始停止提供服务，被迫折腾寻找新的科学上网工具。调研了下，SS/SSR是个好选择，买个VPS自建也是很容易的事情。开工。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-12T13:43:48.295Z">
+<meta property="og:updated_time" content="2018-07-12T13:43:48.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于VPS自建SSR">
 <meta name="twitter:description" content="已经无法用倒车来形容，简直是掉头踩油门。greenjsq从2017/7/1开始停止提供服务，被迫折腾寻找新的科学上网工具。调研了下，SS/SSR是个好选择，买个VPS自建也是很容易的事情。开工。">
@@ -154,7 +154,7 @@
 
         
         <a href="/2017/07/01/基于VPS自建SSR/" class="archive-article-date">
-  	<time datetime="2017-07-01T03:57:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
+  	<time datetime="2017-07-01T04:57:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
 </a>
         
       </header>
@@ -163,38 +163,38 @@
       
         <p>已经无法用倒车来形容，简直是掉头踩油门。greenjsq从2017/7/1开始停止提供服务，被迫折腾寻找新的科学上网工具。调研了下，SS/SSR是个好选择，买个VPS自建也是很容易的事情。开工。</p>
 <a id="more"></a>
-<h3 id="VPS服务商"><a href="#VPS服务商" class="headerlink" title="VPS服务商"></a>VPS服务商</h3><p>选择了<a href="http://www.vultr.com/" target="_blank" rel="external">Vultr</a>的VPS。支持paypal和信用卡付款。网站购买操作简单明了。目前貌似没有新用户优惠了，不过乞丐版2.5美刀一个月也不算贵。坑爹的是，乞丐版很多服务器都缺货，只剩Miami有货。<br><a href="http://www.vultrvps.com/test-server" target="_blank" rel="external">测速页面</a>测下来还行，那就这个了。<a href="https://www.ipip.net/traceroute.php" target="_blank" rel="external">traceroute</a>之后可以再测试下路由信息。</p>
-<h3 id="安装SSR"><a href="#安装SSR" class="headerlink" title="安装SSR"></a>安装SSR</h3><p>用xshell ssh到vps。vultr服务器页面上能看到ip和root初始密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget --no-check-certificate	 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</div><div class="line">$ chmod +x shadowsocksR.sh</div><div class="line">$ ./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</div></pre></td></tr></table></figure></p>
+<h3 id="VPS服务商"><a href="#VPS服务商" class="headerlink" title="VPS服务商"></a>VPS服务商</h3><p>选择了<a href="http://www.vultr.com/" target="_blank" rel="noopener">Vultr</a>的VPS。支持paypal和信用卡付款。网站购买操作简单明了。目前貌似没有新用户优惠了，不过乞丐版2.5美刀一个月也不算贵。坑爹的是，乞丐版很多服务器都缺货，只剩Miami有货。<br><a href="http://www.vultrvps.com/test-server" target="_blank" rel="noopener">测速页面</a>测下来还行，那就这个了。<a href="https://www.ipip.net/traceroute.php" target="_blank" rel="noopener">traceroute</a>之后可以再测试下路由信息。</p>
+<h3 id="安装SSR"><a href="#安装SSR" class="headerlink" title="安装SSR"></a>安装SSR</h3><p>用xshell ssh到vps。vultr服务器页面上能看到ip和root初始密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget --no-check-certificate	 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">$ chmod +x shadowsocksR.sh</span><br><span class="line">$ ./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure></p>
 <p>完成后提示设定初始密码和初始端口。反正之后可以修改。成功后会提示“Enjoy it!”</p>
 <h3 id="配置shadowsocks-json"><a href="#配置shadowsocks-json" class="headerlink" title="配置shadowsocks.json"></a>配置shadowsocks.json</h3><p>路径在/etc</p>
-<p>可以参考<a href="https://github.com/breakwa11/shadowsocks-rss/wiki/Server-Setup" target="_blank" rel="external">配置说明</a>，还有<a href="https://github.com/breakwa11/shadowsocks-rss/wiki/obfs" target="_blank" rel="external">混淆插件说明</a>。</p>
+<p>可以参考<a href="https://github.com/breakwa11/shadowsocks-rss/wiki/Server-Setup" target="_blank" rel="noopener">配置说明</a>，还有<a href="https://github.com/breakwa11/shadowsocks-rss/wiki/obfs" target="_blank" rel="noopener">混淆插件说明</a>。</p>
 <p>这里配置有点蛋疼：win下SSR客户端所有加密方式，混淆协议都支持得很好，随便配都可以；6300刷的梅林固件貌似不支持SSR，只支持原版SS，所以不能开混淆算法；ios上用的wingy貌似Obfs方式只能用http_simple才能成功。</p>
-<p>配置完成后重启。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/shadowsocks restart</div></pre></td></tr></table></figure></p>
-<h3 id="VPS优化"><a href="#VPS优化" class="headerlink" title="VPS优化"></a>VPS优化</h3><p>TCP优化，增加TCP连接数量，编辑/etc/security/limits.conf，增加两行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">* soft nofile 51200</div><div class="line">* hard nofile 51200</div></pre></td></tr></table></figure></p>
-<p>设置ulimit:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">ulimit</span> -n 51200</div></pre></td></tr></table></figure></p>
-<p>TCP-BBR优化，Vultr上测试是有效的。xshell中运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</div><div class="line">$ chmod +x bbr.sh</div><div class="line">$ ./bbr.sh</div></pre></td></tr></table></figure></p>
+<p>配置完成后重启。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure></p>
+<h3 id="VPS优化"><a href="#VPS优化" class="headerlink" title="VPS优化"></a>VPS优化</h3><p>TCP优化，增加TCP连接数量，编辑/etc/security/limits.conf，增加两行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 51200</span><br><span class="line">* hard nofile 51200</span><br></pre></td></tr></table></figure></p>
+<p>设置ulimit:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -n 51200</span><br></pre></td></tr></table></figure></p>
+<p>TCP-BBR优化，Vultr上测试是有效的。xshell中运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">$ chmod +x bbr.sh</span><br><span class="line">$ ./bbr.sh</span><br></pre></td></tr></table></figure></p>
 <p>完成后会重启VPS。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ uname -r</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -r</span><br></pre></td></tr></table></figure>
 <p>返回值有4.9.0以上OK。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lsmod | grep bbr</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <p>返回值有tcpbbr就OK。  </p>
-<p>编辑/etc/sysctl.conf，添加内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">fs.file-max = 51200</div><div class="line">net.core.rmem_max = 67108864</div><div class="line">net.core.wmem_max = 67108864</div><div class="line">net.core.netdev_max_backlog = 250000</div><div class="line">net.core.somaxconn = 4096</div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line">net.ipv4.tcp_tw_reuse = 1</div><div class="line">net.ipv4.tcp_tw_recycle = 0</div><div class="line">net.ipv4.tcp_fin_timeout = 30</div><div class="line">net.ipv4.tcp_keepalive_time = 1200</div><div class="line">net.ipv4.ip_local_port_range = 10000 65000</div><div class="line">net.ipv4.tcp_max_syn_backlog = 8192</div><div class="line">net.ipv4.tcp_max_tw_buckets = 5000</div><div class="line">net.ipv4.tcp_fastopen = 3</div><div class="line">net.ipv4.tcp_mem = 25600 51200 102400</div><div class="line">net.ipv4.tcp_rmem = 4096 87380 67108864</div><div class="line">net.ipv4.tcp_wmem = 4096 65536 67108864</div><div class="line">net.ipv4.tcp_mtu_probing = 1</div><div class="line">net.ipv4.tcp_congestion_control = bbr</div><div class="line"><span class="comment">#END OF LINE</span></div></pre></td></tr></table></figure></p>
-<p>编辑完成后应用并重启SSR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sysctl -p</div><div class="line">$ /etc/init.d/shadowsocks restart</div></pre></td></tr></table></figure></p>
-<h3 id="VPS安全配置fail2ban"><a href="#VPS安全配置fail2ban" class="headerlink" title="VPS安全配置fail2ban"></a>VPS安全配置fail2ban</h3><p>安装fail2ban<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install fail2ban</div></pre></td></tr></table></figure></p>
-<p>验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ fail2ban-client ping</div></pre></td></tr></table></figure></p>
-<p>设置开机自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl <span class="built_in">enable</span> fail2ban</div></pre></td></tr></table></figure></p>
+<p>编辑/etc/sysctl.conf，添加内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fs.file-max = 51200</span><br><span class="line">net.core.rmem_max = 67108864</span><br><span class="line">net.core.wmem_max = 67108864</span><br><span class="line">net.core.netdev_max_backlog = 250000</span><br><span class="line">net.core.somaxconn = 4096</span><br><span class="line">net.ipv4.tcp_syncookies = 1</span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_tw_recycle = 0</span><br><span class="line">net.ipv4.tcp_fin_timeout = 30</span><br><span class="line">net.ipv4.tcp_keepalive_time = 1200</span><br><span class="line">net.ipv4.ip_local_port_range = 10000 65000</span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 8192</span><br><span class="line">net.ipv4.tcp_max_tw_buckets = 5000</span><br><span class="line">net.ipv4.tcp_fastopen = 3</span><br><span class="line">net.ipv4.tcp_mem = 25600 51200 102400</span><br><span class="line">net.ipv4.tcp_rmem = 4096 87380 67108864</span><br><span class="line">net.ipv4.tcp_wmem = 4096 65536 67108864</span><br><span class="line">net.ipv4.tcp_mtu_probing = 1</span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br><span class="line"><span class="comment">#END OF LINE</span></span><br></pre></td></tr></table></figure></p>
+<p>编辑完成后应用并重启SSR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sysctl -p</span><br><span class="line">$ /etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure></p>
+<h3 id="VPS安全配置fail2ban"><a href="#VPS安全配置fail2ban" class="headerlink" title="VPS安全配置fail2ban"></a>VPS安全配置fail2ban</h3><p>安装fail2ban<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install fail2ban</span><br></pre></td></tr></table></figure></p>
+<p>验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fail2ban-client ping</span><br></pre></td></tr></table></figure></p>
+<p>设置开机自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">enable</span> fail2ban</span><br></pre></td></tr></table></figure></p>
 <h3 id="VPS禁用多余端口"><a href="#VPS禁用多余端口" class="headerlink" title="VPS禁用多余端口"></a>VPS禁用多余端口</h3><p>原则就是关闭多余端口，只留下常用端口和SSR端口。</p>
-<p>清空默认规则<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ iptables -F</div></pre></td></tr></table></figure></p>
-<p>允许53端口udp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ iptables -A OUTPUT -p udp --dport 53 -j ACCEPT</div><div class="line">$ iptables -A INPUT -p udp --sport 53 -j ACCEPT</div></pre></td></tr></table></figure></p>
-<p>允许本机访问本机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</div><div class="line">$ iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p>清空默认规则<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -F</span><br></pre></td></tr></table></figure></p>
+<p>允许53端口udp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -A OUTPUT -p udp --dport 53 -j ACCEPT</span><br><span class="line">$ iptables -A INPUT -p udp --sport 53 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
+<p>允许本机访问本机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</span><br><span class="line">$ iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
 <p>允许80/443端口，http和https</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport 80 -j ACCEPT</div><div class="line">$ iptables -A OUTPUT -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT</div><div class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport 443 -j ACCEPT</div><div class="line">$ iptables -A OUTPUT -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport 80 -j ACCEPT</span><br><span class="line">$ iptables -A OUTPUT -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT</span><br><span class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport 443 -j ACCEPT</span><br><span class="line">$ iptables -A OUTPUT -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
 <p>允许SSR端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport xxx -j ACCEPT</div><div class="line">$ iptables -A OUTPUT -p tcp --sport xxx -m state --state ESTABLISHED -j ACCEPT</div></pre></td></tr></table></figure>
-<p>保存配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ iptables-save &gt; /etc/sysconfig/iptables</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -A INPUT -p tcp -s 0/0 --dport xxx -j ACCEPT</span><br><span class="line">$ iptables -A OUTPUT -p tcp --sport xxx -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>保存配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables-save &gt; /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure></p>
 <p>重新加载iptables</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ iptables -L</div></pre></td></tr></table></figure>
-<h3 id="SSR客户端配置"><a href="#SSR客户端配置" class="headerlink" title="SSR客户端配置"></a>SSR客户端配置</h3><p>下载<a href="https://github.com/shadowsocksr/shadowsocksr-csharp/releases" target="_blank" rel="external">ShadowsocksR for Windows</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -L</span><br></pre></td></tr></table></figure>
+<h3 id="SSR客户端配置"><a href="#SSR客户端配置" class="headerlink" title="SSR客户端配置"></a>SSR客户端配置</h3><p>下载<a href="https://github.com/shadowsocksr/shadowsocksr-csharp/releases" target="_blank" rel="noopener">ShadowsocksR for Windows</a></p>
 <p>在编辑服务器页面添加VPS上配置好的SSR端口信息。生成的二维码可以方便分享。</p>
 <p>之后就可以科学上网了。  </p>
 <h3 id="2018-4-29更新vps安全配置"><a href="#2018-4-29更新vps安全配置" class="headerlink" title="2018.4.29更新vps安全配置"></a>2018.4.29更新vps安全配置</h3><p>禁用root密码登录，采用ssh密钥登录   </p>
@@ -222,7 +222,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 </code></pre>
 <p>最后修改xshell里的登录设置</p>
 <h3 id="2018-7-12更新SSR配置"><a href="#2018-7-12更新SSR配置" class="headerlink" title="2018.7.12更新SSR配置"></a>2018.7.12更新SSR配置</h3><p>有一段时间新开出来的IP用不了两三天就被Q了，非常操蛋。后来发现是配置的锅。  </p>
-<p><a href="https://lolico.moe/tutorial/shadowsocksr.html" target="_blank" rel="external">原因和教程来源在这里。</a></p>
+<p><a href="https://lolico.moe/tutorial/shadowsocksr.html" target="_blank" rel="noopener">原因和教程来源在这里。</a></p>
 <p>总结起来就是远离<code>tls1.2_ticket_auth</code>混淆，只用<code>plain</code>。</p>
 
       
@@ -410,15 +410,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">投资</a>
               </li>
             
             <div class="clearfix"></div>
