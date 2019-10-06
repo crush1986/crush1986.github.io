@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: IC | 一个IC民工的自我修养</title>
+  <title>Noise-Shaping SAR ADC | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个IC民工的自我修养">
-<meta property="og:url" content="http://yoursite.com/categories/IC/page/2/index.html">
+  <meta name="description" content="针对高精度的应用，电容匹配加校准，SAR ADC极限基本就在12bit，再往上就需要Sigma-Delta来实现。现在的一个趋势是将噪声整形结合到SAR结构里来，既能保持SAR的简单结构和低功耗，同时提高精度。 最早的Noise-Shaping SAR ADC应该是来自于2012年J. Fredenburg的文章：A 90-MS/s 11-MHz-Bandwidth 62-dB SNDR Nois">
+<meta name="keywords" content="IC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Noise-Shaping SAR ADC">
+<meta property="og:url" content="http://yoursite.com/2019/10/06/Noise-Shaping SAR ADC/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
+<meta property="og:description" content="针对高精度的应用，电容匹配加校准，SAR ADC极限基本就在12bit，再往上就需要Sigma-Delta来实现。现在的一个趋势是将噪声整形结合到SAR结构里来，既能保持SAR的简单结构和低功耗，同时提高精度。 最早的Noise-Shaping SAR ADC应该是来自于2012年J. Fredenburg的文章：A 90-MS/s 11-MHz-Bandwidth 62-dB SNDR Nois">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/estimation_timing.png">
+<meta property="og:image" content="http://yoursite.com/img/2ndnssar.png">
+<meta property="og:image" content="http://yoursite.com/img/3Xcomp.png">
+<meta property="og:updated_time" content="2019-10-06T02:24:33.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个IC民工的自我修养">
+<meta name="twitter:title" content="Noise-Shaping SAR ADC">
+<meta name="twitter:description" content="针对高精度的应用，电容匹配加校准，SAR ADC极限基本就在12bit，再往上就需要Sigma-Delta来实现。现在的一个趋势是将噪声整形结合到SAR结构里来，既能保持SAR的简单结构和低功耗，同时提高精度。 最早的Noise-Shaping SAR ADC应该是来自于2012年J. Fredenburg的文章：A 90-MS/s 11-MHz-Bandwidth 62-dB SNDR Nois">
+<meta name="twitter:image" content="http://yoursite.com/img/estimation_timing.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
   
@@ -136,36 +145,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Noise-Shaping SAR ADC" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/24/PA项目小结/" class="archive-article-date">
-  	<time datetime="2017-09-24T09:18:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/24/PA项目小结/">PA项目小结</a>
+    <h1 class="article-title" itemprop="name">
+      Noise-Shaping SAR ADC
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/06/Noise-Shaping SAR ADC/" class="archive-article-date">
+  	<time datetime="2019-10-06T02:02:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>针对高精度的应用，电容匹配加校准，SAR ADC极限基本就在12bit，再往上就需要Sigma-Delta来实现。现在的一个趋势是将噪声整形结合到SAR结构里来，既能保持SAR的简单结构和低功耗，同时提高精度。</p>
+<p>最早的Noise-Shaping SAR ADC应该是来自于2012年J. Fredenburg的文章：<br><a href="https://ieeexplore.ieee.org/document/6381486" target="_blank" rel="noopener">A 90-MS/s 11-MHz-Bandwidth 62-dB SNDR Noise-Shaping SAR ADC</a><br>用8位电容实现了10位有效位。核心就是把最后一次转换后的余量采集出来，不停的迭代累加，以此来实现抑制噪声。积分器的运放采用单级放大器实现。</p>
+<a id="more"></a>  
+<p>2015年东京工业大学的Zhijie Chen的文章<a href="https://ieeexplore.ieee.org/document/7231329" target="_blank" rel="noopener">A 9.35-ENOB, 14.8 fJ/conv.-step Fully-Passive Noise-Shaping SAR ADC</a>提出了Fully-Passive的NS SAR。与前者相比，积分器不是通过有源器件的运放来实现，而是采用了无源器件电容实现，适应电压和工艺的scaling，降低功耗。电容电荷再分配实现一阶整形，抑制比较器噪声，cap的mismatch和DAC的建立误差。由于余量需要参与下一个周期的运算，比较器结构修改为两输入。</p>
+<p>2016年，Zhijie Chen的文章<a href="https://ieeexplore.ieee.org/document/7844197" target="_blank" rel="noopener">A 2nd Order Fully-Passive Noise-Shaping SAR ADC with Embedded Passive Gain
+</a>在之前基础上实现了二阶整形。关键点在于2倍增益的实现，是通过余量采用电容的charge pump实现。8位电容，4倍过采实现了10.5位的有效位。</p>
+<p>之后德州大学奥斯汀分校Nan Sun组在NS SAR方向上发表多篇文章。以三篇JSSC为例。<br><a href="https://ieeexplore.ieee.org/document/7857744" target="_blank" rel="noopener">A 0.7-V 0.6-μW 100-kS/s Low-Power SAR ADC With Statistical Estimation-Based Noise Reduction
+</a><br>这篇文章主要引入了统计学的估计理论，通过估计转换后余量来抑制比较器噪声和量化噪声。电路结构上改动很小，只是对LSB的转换重复多次。与均值估计，最大似然估计相比，文章提出采用贝叶斯估计结果更优。  </p>
+<p><img src="/img/estimation_timing.png" alt="">  </p>
+<p><a href="https://ieeexplore.ieee.org/document/8492338" target="_blank" rel="noopener">A 13-ENOB Second-Order Noise-Shaping SAR ADC Realizing Optimized NTF Zeros Using the Error-Feedback Structure
+</a><br>这篇文章的二阶整形是通过反馈结构实现，噪声传递函数实现更优，并且不需要多输入比较器。  </p>
+<p><a href="https://ieeexplore.ieee.org/document/8661510" target="_blank" rel="noopener">A Second-Order Noise-Shaping SAR ADC With Passive Integrator and Tri-Level Voting</a><br>这篇文章创新点主要包括两点，无源器件实现的二阶整形和tri-level voting。<br><img src="/img/2ndnssar.png" alt=""><br>二阶整形使用两个采样电容，增益与之前charge pump的实现方式不同，而是通过多输入比较器的跨导实现，因而设计了一种三输入的动态比较器。动态比较器kickback noise较大，tri-level voting能很好地抑制比较器噪声。<br><img src="/img/3Xcomp.png" alt="">  </p>
+<p>待更新……</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -177,7 +197,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -190,69 +210,51 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/02/TRNG设计与实现/" class="archive-article-date">
-  	<time datetime="2017-07-02T07:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/02/TRNG设计与实现/">TRNG设计与实现</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/05/《一本书看透股权架构》笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《一本书看透股权架构》笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/IC/">&laquo; Prev</a><a class="page-number" href="/categories/IC/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'crush1986'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -276,10 +278,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
