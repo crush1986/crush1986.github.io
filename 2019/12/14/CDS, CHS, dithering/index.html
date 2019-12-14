@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 一个IC民工的自我修养</title>
+  <title>Nested-chpper, correlated double sampling, and dithering | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个IC民工的自我修养">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
+<meta name="keywords" content="IC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nested-chpper, correlated double sampling, and dithering">
+<meta property="og:url" content="http://yoursite.com/2019/12/14/CDS, CHS, dithering/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
+<meta property="og:description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/autozeroing.png">
+<meta property="og:image" content="http://yoursite.com/img/autozeroing1.png">
+<meta property="og:image" content="http://yoursite.com/img/chopper.png">
+<meta property="og:image" content="http://yoursite.com/img/chopper1.png">
+<meta property="og:image" content="http://yoursite.com/img/cds.png">
+<meta property="og:image" content="http://yoursite.com/img/cds1.png">
+<meta property="og:updated_time" content="2019-12-14T08:22:18.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个IC民工的自我修养">
+<meta name="twitter:title" content="Nested-chpper, correlated double sampling, and dithering">
+<meta name="twitter:description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
+<meta name="twitter:image" content="http://yoursite.com/img/autozeroing.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
   
@@ -136,242 +148,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CDS, CHS, dithering" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/07/《稀缺》书摘/" class="archive-article-date">
-  	<time datetime="2019-07-07T08:57:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/07/《稀缺》书摘/">《稀缺》书摘</a>
+    <h1 class="article-title" itemprop="name">
+      Nested-chpper, correlated double sampling, and dithering
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读书/" class="article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/公司价值分析笔记：华海药业/" class="archive-article-date">
-  	<time datetime="2019-06-30T15:06:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
+        
+        <a href="/2019/12/14/CDS, CHS, dithering/" class="archive-article-date">
+  	<time datetime="2019-12-14T02:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/公司价值分析笔记：华海药业/">公司价值分析笔记：华海药业</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/投资/" class="article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/02/《财务诡计》小结/" class="archive-article-date">
-  	<time datetime="2019-06-02T03:07:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/02/《财务诡计》小结/">《财务诡计》小结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/投资/" class="article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/26/2017～2019年问答整理/" class="archive-article-date">
-  	<time datetime="2019-05-26T10:26:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/26/2017～2019年问答整理/">2017～2019年问答整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/投资/" class="article-tag-list-link color3">投资</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <p>针对预研项目，学习几种新技术，对文献进行小结。</p>
+<h1 id="1-Nested-Chopper"><a href="#1-Nested-Chopper" class="headerlink" title="1. Nested-Chopper"></a>1. Nested-Chopper</h1><p><a href="https://ieeexplore.ieee.org/document/890300" target="_blank" rel="noopener">A CMOS nested-chopper instrumentation amplifier with 100-nV offset</a>  </p>
+<p>文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制搬到高频。两者对于1/f噪声同样有效，offset可以被看作是低频的1/f噪声。  </p>
+<p>autozeroing的频率应该比1/f转角频率高。低频噪声被抬高了至fc/fs倍，直观理解就是Caz电容采到了更宽频带内的噪声并折回基带，详细解释在Enz的论文内，典型值为3～5倍。<br><a id="more"></a>  </p>
+<p><img src="/img/autozeroing.png" alt="">  </p>
+<p><img src="/img/autozeroing1.png" alt="">  </p>
+<p>对比而言，chopping并不对输入信号进行采样，所以不存在更宽带宽内的热噪倍采样折回基带内，所以低频噪声几乎就是热燥。但chopping的问题是存在offset余量，数量级大约为几十uV，主要是由于开关不同的电荷注入引起。  </p>
+<p><img src="/img/chopper.png" alt="">  </p>
+<p>文章提出的nested-chopper技术，把传统的chopper放大器看作是无1/f噪声、offset很小的普通放大器，在外层加入一级低速chopper。由于1/f噪声已经被消除，chopper的频率可以低于转角频率，因而自身电荷注入引入的offset余量可以很小。总体看来，高速chopper引入的offset余量被低速chopper调制，理论上均值会降到0。实际实现时，与两者的频率之比有关，降为原来的1/N。缺点是由于引入了低速chopper，实际信号带宽只能到该值的1/2，但是对于低速高精度、直流测量等应用场景，这不是问题。文章实现的仪表放大器，offset典型值为100nV。  </p>
+<p><img src="/img/chopper1.png" alt="">  </p>
+<h1 id="2-Correlated-Double-Sample-CDS"><a href="#2-Correlated-Double-Sample-CDS" class="headerlink" title="2. Correlated Double Sample (CDS)"></a>2. Correlated Double Sample (CDS)</h1><p><a href="https://ieeexplore.ieee.org/document/542410" target="_blank" rel="noopener">Circuit Techniques for Reducing the Effects of Op-Amp Imperfections: Autozeroing, Correlated Double Sampling, and Chopper Stabilization</a>  </p>
+<p>Enz和Temes的一片高引论文，详细分析了autozeroing/correlated double sampling(CDS)/chopper stabilization(CHS)。CDS作为采样的一种，与采样保持电路完美契合；CHS是调制的一种，更适合连续时间信号。CDS降低低频噪声是通过高通滤波实现；CHS是将低频噪声搬到带外。CDS自带两倍增益，能降低后级运放的增益需求；CHS需要运放处理更高频的信号，相应有效增益被降低了。  </p>
+<p><a href="https://ieeexplore.ieee.org/document/1253852" target="_blank" rel="noopener">A 114-dB 68-mW Chopper-Stabilized Stereo Multibit Audio ADC in 5.62 mm2</a>  </p>
+<p>由于采用了CDS，降低了adc的噪底，减小采样电容面积。输入级的非线性主要来自于采样开关的导通阻抗随输入信号变化，CDS降低了对导通阻抗的需求，可以避免bootstrap或者lvt器件。由于采样开关和dac时间常数不一致，两者到达积分器输入节点不同步，积分器输出可能有较大抖动。因而积分相位下，积分器输入开关，在采样开关和dac开关都导通后才导通。  </p>
+<p><img src="/img/cds.png" alt="">  </p>
+<p><a href="https://patents.google.com/patent/US20080024342" target="_blank" rel="noopener">US20080024342A1</a><br>microchip的一个专利，P1相位为采样相位，P2相位为积分相位。  </p>
+<p><img src="/img/cds1.png" alt="">  </p>
+<h1 id="3-Dithering"><a href="#3-Dithering" class="headerlink" title="3. Dithering"></a>3. Dithering</h1><p><a href="https://ieeexplore.ieee.org/document/112043" target="_blank" rel="noopener">Dithering and Its Effects on Sigma-Delta and Multistage Sigma-Delta Modulation</a>  </p>
+<p><a href="https://ieeexplore.ieee.org/document/230265" target="_blank" rel="noopener">Effective dithering of sigma-delta modulators</a>  </p>
+<p>Dithering用来消除sigma-delta调制器的idle channel noise，平滑噪声频谱，与输入信号无关。一般由伪随机数生成器生成伪随机数序列，然后通过DAC转换到模拟信号与输入信号相加后，由ADC进行良好。最后量化完成时再减去所加入的伪随机数。伪随机数生成器一般采用LFSR实现。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/01/ESD笔记/" class="archive-article-date">
-  	<time datetime="2018-10-01T07:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/01/ESD笔记/">ESD笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -383,7 +207,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -396,20 +220,51 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/12/14/《超越金融》书摘/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《超越金融》书摘</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
-    </nav>
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'crush1986'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -433,8 +288,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
