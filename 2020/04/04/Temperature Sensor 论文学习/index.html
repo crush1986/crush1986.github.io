@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: IC | 一个IC民工的自我修养</title>
+  <title>Temperature Sensor 论文学习 | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个IC民工的自我修养">
-<meta property="og:url" content="http://yoursite.com/tags/IC/index.html">
+  <meta name="description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
+<meta name="keywords" content="IC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Temperature Sensor 论文学习">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/Temperature Sensor 论文学习/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
+<meta property="og:description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/ts.png">
+<meta property="og:image" content="http://yoursite.com/img/dvbe.png">
+<meta property="og:image" content="http://yoursite.com/img/vbe.png">
+<meta property="og:image" content="http://yoursite.com/img/modulator.png">
+<meta property="og:updated_time" content="2020-04-04T04:55:41.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个IC民工的自我修养">
+<meta name="twitter:title" content="Temperature Sensor 论文学习">
+<meta name="twitter:description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
+<meta name="twitter:image" content="http://yoursite.com/img/ts.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
   
@@ -136,36 +146,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Temperature Sensor 论文学习" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Temperature Sensor 论文学习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/04/Temperature Sensor 论文学习/" class="archive-article-date">
+
+        
+        <a href="/2020/04/04/Temperature Sensor 论文学习/" class="archive-article-date">
   	<time datetime="2020-04-04T02:28:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/04/Temperature Sensor 论文学习/">Temperature Sensor 论文学习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近研究了一下temperature sensor，学习了一偏高引文章。</p>
+<p><a href="https://ieeexplore.ieee.org/document/1388634/" target="_blank" rel="noopener">A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃</a>  </p>
+<p>作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。   </p>
+<p><img src="/img/ts.png" alt=""> </p>
+<p>这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bitstream，1对应-Vbe/R2的电流，0对应ΔVbe/R1的电流。推导得输出均值µ=𝜶∙ΔVbe∕Vref。𝜶是R2和R1的比值，Vref是0温度系数的参考电压。选取合适的系数，输出就是PTAT的温度读数。  </p>
+<a id="more"></a>  
+<p><img src="/img/dvbe.png" alt=""> </p>
+<p>ΔVbe通过R1产生，这样就得到了需要的电流。为消除基极电流的影响，Q1基极也串联了电阻，并且为了消除电阻失配采用了DEM。而bjt的偏置电流也采用了DEM消除电流镜失配。当然最大的失配还是来自于opamp的offset，在mV级别。于是引入nested chopper。  </p>
+<p><img src="/img/vbe.png" alt=""> </p>
+<p>Vbe电压表现出离散性需要校准。bjt上串联校准电阻，流过PTAT电流，用来补偿。vtoi出来的电流也使用DEM消除电流镜失配。opamp的offset用chopper消除，由于Vbe温度系数大约-2mV/℃，nested-chopper就没有必要了。版图上，电阻使用同种类型，做好交叉匹配.</p>
+<p><img src="/img/modulator.png" alt=""> </p>
+<p>Sigma Delat ADC采用的CT-DT架构。第二级额外增加补偿电流保证稳定性。缺点是积分器复位后，环路对电容充电到初始状态时间很长。文章中额外加入了初始电流分别对两级积分器电容充电，能缩短TS ready的时间。</p>
+<p>校准bjt靠近其他bjt，把E和B极端口送出来，可以方便地测得Ie，Ib以及Vbe。并且Vbe可以在封装之后再校准，排除了封装应力的影响。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -177,7 +198,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -190,236 +211,51 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/14/CDS, CHS, dithering/" class="archive-article-date">
-  	<time datetime="2019-12-14T02:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/14/CDS, CHS, dithering/">Nested-chpper, correlated double sampling, and dithering</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/01/ESD笔记/" class="archive-article-date">
-  	<time datetime="2018-10-01T07:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/01/ESD笔记/">ESD笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/01/gmoverid/" class="archive-article-date">
-  	<time datetime="2018-05-01T06:41:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/01/gmoverid/">gm over id</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/30/高精度BGR/" class="archive-article-date">
-  	<time datetime="2018-04-30T14:26:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/30/高精度BGR/">高精度BGR</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/22/博客摘要/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客摘要</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/IC/page/2/">2</a><a class="extend next" rel="next" href="/tags/IC/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'crush1986'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -443,9 +279,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
