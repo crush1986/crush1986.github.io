@@ -168,9 +168,7 @@
 <li>外部通过串联肖特基二极管对LDO输出钳位，外加负压测试时无电流激增现象。</li>
 <li>在LPLDO输出上通过FIB绕线串入约1Kohm电阻，latchup测试-350mA PASS。</li>
 </ol>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>衬底电流没有被合适的collector完全收集，恰好bandgap的bjt区域距离较近，base是nwell，接地是理想的collector收集电流，bandgap core电流增大，抬高bandgap电压。另外LPLDO被衬底电流干扰，机理暂不清楚。</p>
-<h3 id="应对"><a href="#应对" class="headerlink" title="应对"></a>应对</h3><p>bandgap钳位；增加nwell接地作为collector收集衬底电流；LPLDO钳位；降低LPLDO驱动能力。</p>
-
+        
       
 
       
