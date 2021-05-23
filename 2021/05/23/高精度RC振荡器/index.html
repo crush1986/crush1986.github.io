@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/RCosc.png">
 <meta property="og:image" content="http://yoursite.com/img/RCoscwave.png">
-<meta property="og:updated_time" content="2021-05-23T04:56:06.509Z">
+<meta property="og:updated_time" content="2021-05-23T04:57:33.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高精度RC振荡器">
 <meta name="twitter:description" content="A 190nW 33kHz RC oscillator with ±0.21% temperature stability and 4ppm long-term stability   一种适合做为LRC的电路架构，发表于ISSCC2014，作者来自TI。功耗低，电源抑制和温漂特性都比较好。 1. 电路原理电路原理是做一个local的regulator，其输出电压来跟踪器件的阈值电压。输出电压非常">
@@ -180,7 +180,7 @@
 <p>由于电路利用了正负两个方向的充电过程，相当于RC的要求降低了一半，特别适合低频振荡器的实现，能降低RC的面积。  </p>
 <p><img src="/img/RCoscwave.png" alt="">  </p>
 <p>电路还有一个优点，容易scaling。修改local regulator，再调整RC常数，很容易实现高频振荡期。</p>
-<h2 id="2-电路实现："><a href="#2-电路实现：" class="headerlink" title="2. 电路实现："></a>2. 电路实现：</h2><p>在Samsung 90nm工艺中实现。中阻值电阻具有接近零的温度系数。LVT器件能做到local regulator更低的输出电压，实现更低的功耗，但需要额外的mask，未能采用。INV1电压会到负值，电阻R的校准开关传输门可能会有衬底正偏的风险，需要串较大电阻来衰减。<br>仿真时全温度温漂3%左右，实测三颗均小于1%。三星工艺一致性较好，整片wafer的R trim值只有6个，80%落在其中1个上。</p>
+<h2 id="2-电路实现"><a href="#2-电路实现" class="headerlink" title="2. 电路实现"></a>2. 电路实现</h2><p>在Samsung 90nm工艺中实现。中阻值电阻具有接近零的温度系数。LVT器件能做到local regulator更低的输出电压，实现更低的功耗，但需要额外的mask，未能采用。INV1电压会到负值，电阻R的校准开关传输门可能会有衬底正偏的风险，需要串较大电阻来衰减。<br>仿真时全温度温漂3%左右，实测三颗均小于1%。三星工艺一致性较好，整片wafer的R trim值只有6个，80%落在其中1个上。</p>
 
       
 
