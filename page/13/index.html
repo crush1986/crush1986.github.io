@@ -146,6 +146,170 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Latchup问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/04/Latchup问题记录/">Latchup问题记录</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/04/Latchup问题记录/" class="archive-article-date">
+  	<time datetime="2020-10-04T04:59:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><ol>
+<li>测试全封装芯片的latchup性能，发现靠近LDO输出的管脚负压性能较差，最差的一颗只有-50mA。</li>
+<li>做EMMI分析，lathchup测试条件下电源被限流，亮点集中在数字core区域。</li>
+<li>实验室对管脚外加负压至-0.7V时，LDO的bandgap电压降为0；继续增大负压至约-1.2V时，bandgap电压升至4V以上，电流激增，芯片发生latchup；对靠近VREF的管脚外加负压，VREF的bandgap的电压也会升至4V以上，但芯片不会latchup；FIB将VREF的bandgap连接至LDO，对靠近LDO输出的管脚外加负压，程序停止（VREF需要LDO中bandgap的偏置电流），对靠近VREF的管脚外加负压，会发生latchup。推断管脚外加负压会影响bandgap电路。</li>
+<li>将High Performance LDO关闭，重复测试管脚外加负压，现象相同，仍然latchup；将Low Power LDO关闭，重复测试管脚外加负压，未发现电流激增的现象。</li>
+<li>Low Power LDO关闭，做EMMI分析，lathchup测试条件下，触发前后电流仍有增大，集中在低压数字区域。推测关闭LPLDO减小了latchup程度。</li>
+<li>Low Power LDO关闭，latchup测试通过-350mA，但重复测试时会出现不稳定的情况，-100mA偶尔会出现fail现象；抓取瞬态波形，可以看到LDO bandgap在触发期间为0，但无法排除输出路径（buffer和mux）是否被低压域逻辑干扰；LDO电压若超过4V即fail。</li>
+<li>外部通过串联肖特基二极管对LDO输出钳位，外加负压测试时无电流激增现象。</li>
+<li>在LPLDO输出上通过FIB绕线串入约1Kohm电阻，latchup测试-350mA PASS。</li>
+</ol>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/IC/" class="article-tag-list-link color3">IC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/04/Latchup问题记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-《共情的力量》书摘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/《共情的力量》书摘/">《共情的力量》书摘</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/《共情的力量》书摘/" class="archive-article-date">
+  	<time datetime="2020-09-20T12:02:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>我把共情定义为<strong>理解他人特有的经历并相应地做出回应的能力。</strong>共情的两面性是指这种与生俱来的能力既能用来助人，也能用来害人。</p>
+</li>
+<li><p>在父亲教给我的所有技巧当中，他觉得最有用的是评估别人的特质和动机的能力。</p>
+</li>
+<li><p>“看起来像是朋友的人可能只是在利用你，而貌似敌人的人也可能只是害怕你。要注意看他人的眼神。看他是直视你，还是不敢看你？他手上的动作是什么？他站着的时候是不是两只脚交替着地？他是不是搂着你的肩膀说你是他最好的朋友？一定要记得问自己‘这家伙想跟我推销什么’。”——说到这里，他会把我的手腕抓得更紧——“要想想真正的原因。”</p>
+</li>
+<li><p>这就是最关键的一点——只要你知道事情是怎么回事，你就可以自己决定要不要进行配合。共情会告诉你什么时候可以表示同意，什么情况下要拒绝。共情知道怎样设定边界，划清界限。共情在教你如何敞开心扉迎接生活的不同经历时，也会保护你免受伤害。</p>
+</li>
+<li><p><strong>不管多大的孩子，如果他们哭的时候能得到安抚，笑的时候能听到他人的笑声，他们就会相信外界会用安抚的方式来回应自己的情绪。但是，如果他们的眼泪总是没人关心，他们的恐惧也总被忽略，那他们就以为这个世界是没有回应的，是不在乎自己的。如果总是这样被忽略，他们的情绪反应就会逐渐收窄，恐惧就会成为所有情绪中的主导。</strong></p>
+</li>
+<li><p>“我们对这两个家庭的了解还不足以让我们做出评判。”这句话道出了共情的核心。<strong>共情的核心是理解，只有在理解之后才能给出解释。</strong></p>
+</li>
+<li><p><strong>在努力理解的过程中，共情会提出问题，并且拒绝那些过快的回答。共情最有力量的说法之一就是“我不知道”。</strong>鉴于现有答案太过草率或片面，共情会促使人们开始去寻找方法来扩展整个画面，以建立更全面的理解。</p>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读书/" class="article-tag-list-link color3">读书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/《共情的力量》书摘/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-《巴菲特的投资组合》书摘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -838,173 +1002,9 @@
 
 
   
-    <article id="post-《模型思维》书摘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/19/《模型思维》书摘/">《模型思维》书摘</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/19/《模型思维》书摘/" class="archive-article-date">
-  	<time datetime="2020-04-19T07:54:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>神学家、哲学家奥卡姆的威廉（William of Ockham）提出了流传至今的“奥卡姆剃刀”原则：如无必要，勿增实体（Plurality must never be posited without necessity）。爱因斯坦则把“奥卡姆剃刀”原则进一步阐释为：事情应该力求尽可能简单，但是不可过于简单化。</p>
-</li>
-<li><p>模型的7大用途（REDCAPE）。推理：识别条件并推断逻辑含义。解释：为经验现象提供（可检验的）解释。设计：选择制度、政策和规则的特征。沟通：将知识与理解联系起来。行动：指导政策选择和战略行动。预测：对未来和未知现象进行数值和分类预测。探索：分析探索可能性和假说。</p>
-</li>
-<li><p>利用模型，我们可以证明，每个亚种群中的女性人口比例大于男性，但是在整个种群中却是男性人口的比例更高，这种现象被称为“辛普森悖论”（Simpson’s paradox）。模型还表明，两个没有胜算的赌局，当交替轮流进行时，是有可能带来正的预期回报的，这就是人们熟知的“帕隆多悖论”（Parrondo’s paradox）。</p>
-</li>
-<li><p>在向网络中添加节点的同时，是可以减少连接所有节点所需边的总边长的。</p>
-</li>
-<li><p>从长期来看，需求增加对价格的影响会小于生产商品的边际成本的影响。</p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读书/" class="article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/19/《模型思维》书摘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-《估值的艺术》书摘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/19/《估值的艺术》书摘/">《估值的艺术》书摘</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/19/《估值的艺术》书摘/" class="archive-article-date">
-  	<time datetime="2020-04-19T07:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>虽然《美国公认会计准则》和《国际财务报告准则》基本类似，但有时候，会计准则变化带来的影响，会使人感到莫名的诧异：当大众汽车公司在2000年把它的报告会计准则，由《美国公认会计准则》转向《国际财务报告准则》时，它的股东权益金额一夜之间几乎翻了一番。</p>
-</li>
-<li><p>大多数报表造假案例都采用了下述方法。（1）表外会计处理。（2）利润操控（提前确认利润）。（3）审计师偏袒。（4）虚构资产的资本化。</p>
-</li>
-<li><p>银行业是易于出现周期波动的行业——这使长期估值的准确性更加难以企及。</p>
-</li>
-<li><p>2008~2009年金融危机期间，北岩银行、贝尔斯登和雷曼兄弟的厄运清楚地表明：在这个行业，创纪录的盈利和破产之间，只有一层薄薄的窗户纸。</p>
-</li>
-<li><p>一个“纯粹的”大宗商品生产商，与一家享有著名品牌的公司的区别：后者具有明显的价格话语权。</p>
-</li>
-<li><p>由于人员和租金通常会占到销售和管理费的大头，所以，在分析这个比率时，要重点关注<strong>工资的发展态势和租金的未来趋势。</strong></p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读书/" class="article-tag-list-link color3">读书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/19/《估值的艺术》书摘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
     </nav>
   
 
@@ -1016,7 +1016,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 crush1986
+    		&copy; 2025 crush1986
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
