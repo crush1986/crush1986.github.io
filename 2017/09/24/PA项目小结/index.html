@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PA项目小结 | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="PA项目上周Tapeout。虽然跟之前的版本改动不大，但是还是有不少值得总结的地方。">
-<meta name="keywords" content="IC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PA项目小结">
-<meta property="og:url" content="http://yoursite.com/2017/09/24/PA项目小结/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/PA%E9%A1%B9%E7%9B%AE%E5%B0%8F%E7%BB%93/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
 <meta property="og:description" content="PA项目上周Tapeout。虽然跟之前的版本改动不大，但是还是有不少值得总结的地方。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-24T13:40:01.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-09-24T09:18:47.000Z">
+<meta property="article:modified_time" content="2026-01-25T13:21:37.855Z">
+<meta property="article:author" content="crush1986">
+<meta property="article:tag" content="IC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PA项目小结">
-<meta name="twitter:description" content="PA项目上周Tapeout。虽然跟之前的版本改动不大，但是还是有不少值得总结的地方。">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
   
@@ -37,8 +37,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -62,7 +62,7 @@
 	        
 				<li><a href="/categories/IC/">IC</a></li>
 	        
-				<li><a href="/categories/读书/">读书</a></li>
+				<li><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 	        
 			</ul>
 		</nav>
@@ -134,7 +134,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/categories/IC/">IC</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/读书/">读书</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 		        
 				</ul>
 			</nav>
@@ -161,7 +161,7 @@
   
 
         
-        <a href="/2017/09/24/PA项目小结/" class="archive-article-date">
+        <a href="/2017/09/24/PA%E9%A1%B9%E7%9B%AE%E5%B0%8F%E7%BB%93/" class="archive-article-date">
   	<time datetime="2017-09-24T09:18:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
 </a>
         
@@ -170,7 +170,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>PA项目上周Tapeout。虽然跟之前的版本改动不大，但是还是有不少值得总结的地方。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="1-PGA架构"><a href="#1-PGA架构" class="headerlink" title="1. PGA架构"></a>1. PGA架构</h2><p>PGA架构采用普通的反向放大电路，通过开关管的导通和截止来选择不同的输入支路电阻，来实现不同倍数的放大器。一个RF支路，多个Rin支路。</p>
 <p>这种架构由于开关管在信号通路上，开关管的导通电阻对增益精度会有明显的影响。导通电阻随着PVT的变化，variation非常大，所以各档位的增益值随着PVT也会有variation。特别是在高增益档位，本身串联的poly电阻Rin阻值较小，相对说来开关管导通电阻的占比就非常大了，最高档的variation达到了3db（40%）。  </p>
 <p>于是考虑修改电阻网络的架构。把开关管从信号通路上移走：Rin+RF的总和是固定的，各个开关仅仅用来选择从哪点把RF和Rin两个电阻分开。这样增益的精度仅取决于poly电阻的比值。但是后来用户提出了新的应用需求：需要在Vin-和Vout之间（也就是RF两端）能够并联个电阻，来调节整个PGA的增益。比如并联一个跟RF一样大的电阻，把PGA增益降为设计值的一半。<br>如果并联这个电阻的话，开关管仍然会接入信号通路：由于开关管显著的寄生效应，并联之后的增益完全不可控；再加上Rin和RF两个电阻在这种架构下各档增益之间都是在变动的，并联电阻之后的增益更加不可控。最终会对用户使用上带来明显不便。 这个方案被否决。 </p>
@@ -236,7 +236,7 @@
     </a>
   
   
-    <a href="/2017/07/02/TRNG设计与实现/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/02/TRNG%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">TRNG设计与实现</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -267,7 +267,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -279,7 +279,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 crush1986
+    		&copy; 2026 crush1986
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

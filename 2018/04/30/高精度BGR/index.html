@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>高精度BGR | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="项目需求一个高精度BGR，普通的一阶补偿很难达到spec。看些文献研究下高阶曲率补偿。">
-<meta name="keywords" content="IC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高精度BGR">
-<meta property="og:url" content="http://yoursite.com/2018/04/30/高精度BGR/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/30/%E9%AB%98%E7%B2%BE%E5%BA%A6BGR/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
 <meta property="og:description" content="项目需求一个高精度BGR，普通的一阶补偿很难达到spec。看些文献研究下高阶曲率补偿。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/bgrsch.png">
 <meta property="og:image" content="http://yoursite.com/img/notchfilter.png">
 <meta property="og:image" content="http://yoursite.com/img/strain.png">
-<meta property="og:updated_time" content="2018-10-01T09:54:58.000Z">
+<meta property="article:published_time" content="2018-04-30T14:26:52.000Z">
+<meta property="article:modified_time" content="2026-01-25T13:21:38.231Z">
+<meta property="article:author" content="crush1986">
+<meta property="article:tag" content="IC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高精度BGR">
-<meta name="twitter:description" content="项目需求一个高精度BGR，普通的一阶补偿很难达到spec。看些文献研究下高阶曲率补偿。">
 <meta name="twitter:image" content="http://yoursite.com/img/bgrsch.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
@@ -41,8 +41,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -66,7 +66,7 @@
 	        
 				<li><a href="/categories/IC/">IC</a></li>
 	        
-				<li><a href="/categories/读书/">读书</a></li>
+				<li><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 	        
 			</ul>
 		</nav>
@@ -138,7 +138,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/categories/IC/">IC</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/读书/">读书</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 		        
 				</ul>
 			</nav>
@@ -165,7 +165,7 @@
   
 
         
-        <a href="/2018/04/30/高精度BGR/" class="archive-article-date">
+        <a href="/2018/04/30/%E9%AB%98%E7%B2%BE%E5%BA%A6BGR/" class="archive-article-date">
   	<time datetime="2018-04-30T14:26:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
 </a>
         
@@ -174,16 +174,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>项目需求一个高精度BGR，普通的一阶补偿很难达到spec。看些文献研究下高阶曲率补偿。  </p>
-<a id="more"></a>  
-<p><a href="https://ieeexplore.ieee.org/document/6056712/" target="_blank" rel="noopener">A Single-Trim CMOS Bandgap Reference With a 3σ Inaccuracy of ±0.15% From −40∘C to 125∘C</a>  </p>
+<span id="more"></span>  
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/6056712/">A Single-Trim CMOS Bandgap Reference With a 3σ Inaccuracy of ±0.15% From −40∘C to 125∘C</a>  </p>
 <p>这篇文章比较老了，被引用次数很多，Delft出品，应该比较靠谱。见过一款标称全温度10ppm的产品，基本就是用的这个架构。  </p>
-<p><img src="/img/bgrsch.png" alt>  </p>
+<p><img src="/img/bgrsch.png" alt="">  </p>
 <p>曲率补偿的核心在于，让bipolar分别流过一个PTAT电流和一个温度无关的电流。让两者的VBE相减，以抵消掉VBE中关于T的高阶项，达到曲率补偿的目的。PTAT电流在一阶补偿电路中就有；温度无关的电流可以通过让BGR电压流过一个温度系数很小的电阻产生。图中红色部分。  </p>
 <p>BGR偏差的最大部分来自于钳位OPAMP的offset，并且这个offset无法通过trim消除。最简单的办法是采用chopper。chopper引入的纹波可以用低通滤掉，但面积上似乎不太划算。文章中采用的是notch filter。  </p>
-<p><img src="/img/notchfilter.png" alt>    </p>
+<p><img src="/img/notchfilter.png" alt="">    </p>
 <p>文章还提到了封装应力会对VBE产生影响。在die和molding之间加入一些chip coating能消除这个影响。这个偏差以前没有考虑到，要找生产的同事了解下具体细节。其他量产中的芯片似乎CP和FT测试时存在过类似的现象。  </p>
 <p>其他的一些偏差，比如工艺引起的VBE偏差和ΔVBE偏差，可以通过trim来消除掉。  </p>
-<h1 id="2018-10-01更新"><a href="#2018-10-01更新" class="headerlink" title="2018.10.01更新"></a>2018.10.01更新</h1><p>测试下来发现BG电压中心值（温度系数最优）与设计值相差了2%左右：仍然按设计中心值去校准的话得到的是个PTAT电压。怀疑是封装造成的影响，因为是MPW，没有CP和FT测试结果对比无法确认。但是做FIB decap后，BG电压有明显变化。<br>通过搜索相关文献，主要学习这篇<a href="https://ieeexplore.ieee.org/document/1175081" target="_blank" rel="noopener">Voltage shift in plastic-packaged bandgap references</a>。<br><img src="/img/strain.png" alt><br>BG电压误差最主要的来源就是封装，并且很难被校准。由于塑封材料和Si的热膨胀系数不同，高温成型后冷却二者收缩不同产生应力。应力对横向器件造成系统误差，对垂直器件带来随机误差；通常引入正温度系数影响；3sigma的值大约5-7mV；对VBE影响大于∆VBE；对VPNP的影响小于VNPN，还与晶向有关。<br>改进措施包括：DEM（设计上更复杂，系统偏差无法补偿）；填充缓冲物（加钱）；陶瓷封装（加钱）；封装后校准（加钱）；设计阶段补偿（做不准，随机部分无法补偿）；VPNP器件（改善有限）  </p>
+<h1 id="2018-10-01更新"><a href="#2018-10-01更新" class="headerlink" title="2018.10.01更新"></a>2018.10.01更新</h1><p>测试下来发现BG电压中心值（温度系数最优）与设计值相差了2%左右：仍然按设计中心值去校准的话得到的是个PTAT电压。怀疑是封装造成的影响，因为是MPW，没有CP和FT测试结果对比无法确认。但是做FIB decap后，BG电压有明显变化。<br>通过搜索相关文献，主要学习这篇<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1175081">Voltage shift in plastic-packaged bandgap references</a>。<br><img src="/img/strain.png" alt=""><br>BG电压误差最主要的来源就是封装，并且很难被校准。由于塑封材料和Si的热膨胀系数不同，高温成型后冷却二者收缩不同产生应力。应力对横向器件造成系统误差，对垂直器件带来随机误差；通常引入正温度系数影响；3sigma的值大约5-7mV；对VBE影响大于∆VBE；对VPNP的影响小于VNPN，还与晶向有关。<br>改进措施包括：DEM（设计上更复杂，系统偏差无法补偿）；填充缓冲物（加钱）；陶瓷封装（加钱）；封装后校准（加钱）；设计阶段补偿（做不准，随机部分无法补偿）；VPNP器件（改善有限）  </p>
 
       
 
@@ -268,7 +268,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -280,7 +280,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 crush1986
+    		&copy; 2026 crush1986
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Nested-chpper, correlated double sampling, and dithering | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
-<meta name="keywords" content="IC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nested-chpper, correlated double sampling, and dithering">
-<meta property="og:url" content="http://yoursite.com/2019/12/14/CDS, CHS, dithering/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/12/14/CDS,%20CHS,%20dithering/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
 <meta property="og:description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/autozeroing.png">
 <meta property="og:image" content="http://yoursite.com/img/autozeroing1.png">
 <meta property="og:image" content="http://yoursite.com/img/chopper.png">
 <meta property="og:image" content="http://yoursite.com/img/chopper1.png">
 <meta property="og:image" content="http://yoursite.com/img/cds.png">
 <meta property="og:image" content="http://yoursite.com/img/cds1.png">
-<meta property="og:updated_time" content="2019-12-14T08:22:18.000Z">
+<meta property="article:published_time" content="2019-12-14T02:38:53.000Z">
+<meta property="article:modified_time" content="2026-01-25T13:21:37.848Z">
+<meta property="article:author" content="crush1986">
+<meta property="article:tag" content="IC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nested-chpper, correlated double sampling, and dithering">
-<meta name="twitter:description" content="针对预研项目，学习几种新技术，对文献进行小结。 1. Nested-ChopperA CMOS nested-chopper instrumentation amplifier with 100-nV offset   文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制">
 <meta name="twitter:image" content="http://yoursite.com/img/autozeroing.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
@@ -44,8 +44,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -69,7 +69,7 @@
 	        
 				<li><a href="/categories/IC/">IC</a></li>
 	        
-				<li><a href="/categories/读书/">读书</a></li>
+				<li><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 	        
 			</ul>
 		</nav>
@@ -141,7 +141,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/categories/IC/">IC</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/读书/">读书</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,7 +168,7 @@
   
 
         
-        <a href="/2019/12/14/CDS, CHS, dithering/" class="archive-article-date">
+        <a href="/2019/12/14/CDS,%20CHS,%20dithering/" class="archive-article-date">
   	<time datetime="2019-12-14T02:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
         
@@ -177,24 +177,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>针对预研项目，学习几种新技术，对文献进行小结。</p>
-<h1 id="1-Nested-Chopper"><a href="#1-Nested-Chopper" class="headerlink" title="1. Nested-Chopper"></a>1. Nested-Chopper</h1><p><a href="https://ieeexplore.ieee.org/document/890300" target="_blank" rel="noopener">A CMOS nested-chopper instrumentation amplifier with 100-nV offset</a>  </p>
+<h1 id="1-Nested-Chopper"><a href="#1-Nested-Chopper" class="headerlink" title="1. Nested-Chopper"></a>1. Nested-Chopper</h1><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/890300">A CMOS nested-chopper instrumentation amplifier with 100-nV offset</a>  </p>
 <p>文章首先对比了autozeroing和chopping。两者的区别在于对offset的处理方式上：autozero对Vos进行采样并且随后将Vos减去；chopping将Vos调制搬到高频。两者对于1/f噪声同样有效，offset可以被看作是低频的1/f噪声。  </p>
-<p>autozeroing的频率应该比1/f转角频率高。低频噪声被抬高了至fc/fs倍，直观理解就是Caz电容采到了更宽频带内的噪声并折回基带，详细解释在Enz的论文内，典型值为3～5倍。<br><a id="more"></a>  </p>
-<p><img src="/img/autozeroing.png" alt>  </p>
-<p><img src="/img/autozeroing1.png" alt>  </p>
+<p>autozeroing的频率应该比1/f转角频率高。低频噪声被抬高了至fc/fs倍，直观理解就是Caz电容采到了更宽频带内的噪声并折回基带，详细解释在Enz的论文内，典型值为3～5倍。<br><span id="more"></span>  </p>
+<p><img src="/img/autozeroing.png" alt="">  </p>
+<p><img src="/img/autozeroing1.png" alt="">  </p>
 <p>对比而言，chopping并不对输入信号进行采样，所以不存在更宽带宽内的热噪倍采样折回基带内，所以低频噪声几乎就是热燥。但chopping的问题是存在offset余量，数量级大约为几十uV，主要是由于开关不同的电荷注入引起。  </p>
-<p><img src="/img/chopper.png" alt>  </p>
+<p><img src="/img/chopper.png" alt="">  </p>
 <p>文章提出的nested-chopper技术，把传统的chopper放大器看作是无1/f噪声、offset很小的普通放大器，在外层加入一级低速chopper。由于1/f噪声已经被消除，chopper的频率可以低于转角频率，因而自身电荷注入引入的offset余量可以很小。总体看来，高速chopper引入的offset余量被低速chopper调制，理论上均值会降到0。实际实现时，与两者的频率之比有关，降为原来的1/N。缺点是由于引入了低速chopper，实际信号带宽只能到该值的1/2，但是对于低速高精度、直流测量等应用场景，这不是问题。文章实现的仪表放大器，offset典型值为100nV。  </p>
-<p><img src="/img/chopper1.png" alt>  </p>
-<h1 id="2-Correlated-Double-Sample-CDS"><a href="#2-Correlated-Double-Sample-CDS" class="headerlink" title="2. Correlated Double Sample (CDS)"></a>2. Correlated Double Sample (CDS)</h1><p><a href="https://ieeexplore.ieee.org/document/542410" target="_blank" rel="noopener">Circuit Techniques for Reducing the Effects of Op-Amp Imperfections: Autozeroing, Correlated Double Sampling, and Chopper Stabilization</a>  </p>
+<p><img src="/img/chopper1.png" alt="">  </p>
+<h1 id="2-Correlated-Double-Sample-CDS"><a href="#2-Correlated-Double-Sample-CDS" class="headerlink" title="2. Correlated Double Sample (CDS)"></a>2. Correlated Double Sample (CDS)</h1><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/542410">Circuit Techniques for Reducing the Effects of Op-Amp Imperfections: Autozeroing, Correlated Double Sampling, and Chopper Stabilization</a>  </p>
 <p>Enz和Temes的一片高引论文，详细分析了autozeroing/correlated double sampling(CDS)/chopper stabilization(CHS)。CDS作为采样的一种，与采样保持电路完美契合；CHS是调制的一种，更适合连续时间信号。CDS降低低频噪声是通过高通滤波实现；CHS是将低频噪声搬到带外。CDS自带两倍增益，能降低后级运放的增益需求；CHS需要运放处理更高频的信号，相应有效增益被降低了。  </p>
-<p><a href="https://ieeexplore.ieee.org/document/1253852" target="_blank" rel="noopener">A 114-dB 68-mW Chopper-Stabilized Stereo Multibit Audio ADC in 5.62 mm2</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1253852">A 114-dB 68-mW Chopper-Stabilized Stereo Multibit Audio ADC in 5.62 mm2</a>  </p>
 <p>由于采用了CDS，降低了adc的噪底，减小采样电容面积。输入级的非线性主要来自于采样开关的导通阻抗随输入信号变化，CDS降低了对导通阻抗的需求，可以避免bootstrap或者lvt器件。由于采样开关和dac时间常数不一致，两者到达积分器输入节点不同步，积分器输出可能有较大抖动。因而积分相位下，积分器输入开关，在采样开关和dac开关都导通后才导通。  </p>
-<p><img src="/img/cds.png" alt>  </p>
-<p><a href="https://patents.google.com/patent/US20080024342" target="_blank" rel="noopener">US20080024342A1</a><br>microchip的一个专利，P1相位为采样相位，P2相位为积分相位。  </p>
-<p><img src="/img/cds1.png" alt>  </p>
-<h1 id="3-Dithering"><a href="#3-Dithering" class="headerlink" title="3. Dithering"></a>3. Dithering</h1><p><a href="https://ieeexplore.ieee.org/document/112043" target="_blank" rel="noopener">Dithering and Its Effects on Sigma-Delta and Multistage Sigma-Delta Modulation</a>  </p>
-<p><a href="https://ieeexplore.ieee.org/document/230265" target="_blank" rel="noopener">Effective dithering of sigma-delta modulators</a>  </p>
+<p><img src="/img/cds.png" alt="">  </p>
+<p><a target="_blank" rel="noopener" href="https://patents.google.com/patent/US20080024342">US20080024342A1</a><br>microchip的一个专利，P1相位为采样相位，P2相位为积分相位。  </p>
+<p><img src="/img/cds1.png" alt="">  </p>
+<h1 id="3-Dithering"><a href="#3-Dithering" class="headerlink" title="3. Dithering"></a>3. Dithering</h1><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/112043">Dithering and Its Effects on Sigma-Delta and Multistage Sigma-Delta Modulation</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/230265">Effective dithering of sigma-delta modulators</a>  </p>
 <p>Dithering用来消除sigma-delta调制器的idle channel noise，平滑噪声频谱，与输入信号无关。一般由伪随机数生成器生成伪随机数序列，然后通过DAC转换到模拟信号与输入信号相加后，由ADC进行良好。最后量化完成时再减去所加入的伪随机数。伪随机数生成器一般采用LFSR实现。</p>
 
       
@@ -239,7 +239,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/01/2019年总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/01/2019%E5%B9%B4%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -249,7 +249,7 @@
     </a>
   
   
-    <a href="/2019/12/14/《超越金融》书摘/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/12/14/%E3%80%8A%E8%B6%85%E8%B6%8A%E9%87%91%E8%9E%8D%E3%80%8B%E4%B9%A6%E6%91%98/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">《超越金融》书摘</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -280,7 +280,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -292,7 +292,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 crush1986
+    		&copy; 2026 crush1986
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

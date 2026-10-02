@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Temperature Sensor 论文学习 | 一个IC民工的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
-<meta name="keywords" content="IC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Temperature Sensor 论文学习">
-<meta property="og:url" content="http://yoursite.com/2020/04/04/Temperature Sensor 论文学习/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/Temperature%20Sensor%20%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="一个IC民工的自我修养">
 <meta property="og:description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/ts.png">
 <meta property="og:image" content="http://yoursite.com/img/dvbe.png">
 <meta property="og:image" content="http://yoursite.com/img/vbe.png">
 <meta property="og:image" content="http://yoursite.com/img/modulator.png">
-<meta property="og:updated_time" content="2020-04-04T04:55:35.000Z">
+<meta property="article:published_time" content="2020-04-04T02:28:44.000Z">
+<meta property="article:modified_time" content="2026-01-25T13:21:37.857Z">
+<meta property="article:author" content="crush1986">
+<meta property="article:tag" content="IC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Temperature Sensor 论文学习">
-<meta name="twitter:description" content="最近研究了一下temperature sensor，学习了一偏高引文章。 A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃   作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。      这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bit">
 <meta name="twitter:image" content="http://yoursite.com/img/ts.png">
   
     <link rel="alternative" href="/atom.xml" title="一个IC民工的自我修养" type="application/atom+xml">
@@ -42,8 +42,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -67,7 +67,7 @@
 	        
 				<li><a href="/categories/IC/">IC</a></li>
 	        
-				<li><a href="/categories/读书/">读书</a></li>
+				<li><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 	        
 			</ul>
 		</nav>
@@ -139,7 +139,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/categories/IC/">IC</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/读书/">读书</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li>
 		        
 				</ul>
 			</nav>
@@ -166,7 +166,7 @@
   
 
         
-        <a href="/2020/04/04/Temperature Sensor 论文学习/" class="archive-article-date">
+        <a href="/2020/04/04/Temperature%20Sensor%20%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2020-04-04T02:28:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
 </a>
         
@@ -175,16 +175,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近研究了一下temperature sensor，学习了一偏高引文章。</p>
-<p><a href="https://ieeexplore.ieee.org/document/1388634/" target="_blank" rel="noopener">A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1388634/">A CMOS Smart Temperature Sensor With a 3σ Inaccuracy of ±0.5℃ From -50℃ to 120℃</a>  </p>
 <p>作者Pertijs，来自Delft理工，主要研究领域是温感和仪表放大器。   </p>
-<p><img src="/img/ts.png" alt> </p>
+<p><img src="/img/ts.png" alt=""> </p>
 <p>这个架构的基本原理在于负反馈环路中积分器的输入均值为0。根据积分器输出的bitstream，1对应-Vbe/R2的电流，0对应ΔVbe/R1的电流。推导得输出均值µ=𝜶∙ΔVbe∕Vref。𝜶是R2和R1的比值，Vref是0温度系数的参考电压。选取合适的系数，输出就是PTAT的温度读数。  </p>
-<a id="more"></a>  
-<p><img src="/img/dvbe.png" alt> </p>
+<span id="more"></span>  
+<p><img src="/img/dvbe.png" alt=""> </p>
 <p>ΔVbe通过R1产生，这样就得到了需要的电流。为消除基极电流的影响，Q1基极也串联了电阻，并且为了消除电阻失配采用了DEM。而bjt的偏置电流也采用了DEM消除电流镜失配。当然最大的失配还是来自于opamp的offset，在mV级别。于是引入nested chopper。  </p>
-<p><img src="/img/vbe.png" alt> </p>
+<p><img src="/img/vbe.png" alt=""> </p>
 <p>Vbe电压表现出离散性需要校准。bjt上串联校准电阻，流过PTAT电流，用来补偿。vtoi出来的电流也使用DEM消除电流镜失配。opamp的offset用chopper消除，由于Vbe温度系数大约-2mV/℃，nested-chopper就没有必要了。版图上，电阻使用同种类型，做好交叉匹配.</p>
-<p><img src="/img/modulator.png" alt> </p>
+<p><img src="/img/modulator.png" alt=""> </p>
 <p>Sigma Delat ADC采用的CT-DT架构。第二级额外增加补偿电流保证稳定性。缺点是积分器复位后，环路对电容充电到初始状态时间很长。文章中额外加入了初始电流分别对两级积分器电容充电，能缩短TS ready的时间。</p>
 <p>校准bjt靠近其他bjt，把E和B极端口送出来，可以方便地测得Ie，Ib以及Vbe。并且Vbe可以在封装之后再校准，排除了封装应力的影响。</p>
 
@@ -230,7 +230,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/19/《写给父母的未来之书》书摘/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/19/%E3%80%8A%E5%86%99%E7%BB%99%E7%88%B6%E6%AF%8D%E7%9A%84%E6%9C%AA%E6%9D%A5%E4%B9%8B%E4%B9%A6%E3%80%8B%E4%B9%A6%E6%91%98/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -240,7 +240,7 @@
     </a>
   
   
-    <a href="/2020/03/22/博客摘要/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/22/%E5%8D%9A%E5%AE%A2%E6%91%98%E8%A6%81/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">博客摘要</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -271,7 +271,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -283,7 +283,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 crush1986
+    		&copy; 2026 crush1986
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
